@@ -1,0 +1,23 @@
+{
+    "en": {
+        "language": "English (United States)",
+        "ping_response": "Pong! 🦆",
+        "setlang_success": "Language set to `{lang}`!",
+        "setlang_invalid": "Invalid language. Supported languages: {languages}.",
+        "lang_current": "The current language is `{lang}`."
+    },
+    "pt": {
+        "language": "Português (Brasil)",
+        "ping_response": "Pong! 🦆 (em Português)",
+        "setlang_success": "Idioma definido para `{lang}`!",
+        "setlang_invalid": "Idioma inválido. Idiomas suportados: {languages}.",
+        "lang_current": "O idioma atual é `{lang}`."
+    },
+    "es": {
+        "language": "Español",
+        "ping_response": "¡Pong! 🦆 (en Español)",
+        "setlang_success": "Idioma cambiado a `{lang}`!",
+        "setlang_invalid": "Idioma no válido. Idiomas soportados: {languages}.",
+        "lang_current": "El idioma actual es `{lang}`."
+    }
+}
