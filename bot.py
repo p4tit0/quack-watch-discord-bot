@@ -1,10 +1,10 @@
 import os
 import discord
 from discord.ext import commands
-from google.cloud import secretmanager
 from dotenv import load_dotenv
 from database.guild_settings import create_tables, get_guild_settings
 from utils.locales import get_message
+from utils.secrets import get_secret
 
 load_dotenv()
 
@@ -17,15 +17,7 @@ bot = commands.Bot(command_prefix="q!", intents=intents)
 COGS_DIR = "cogs"
 DEFAULT_COGS = ["config"] 
 
-PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT_ID")
 SECRET_ID = os.getenv("GOOGLE_CLOUD_SECRET_ID")
-VERSION = os.getenv("GOOGLE_CLOUD_SECRET_VERSION")
-
-def get_discord_token():
-    client = secretmanager.SecretManagerServiceClient()
-    secret_name = f"projects/{PROJECT_ID}/secrets/{SECRET_ID}/versions/{VERSION}"
-    response = client.access_secret_version(request={"name": secret_name})
-    return response.payload.data.decode("UTF-8")
 
 async def load_cogs():
     for filename in os.listdir(COGS_DIR):
@@ -48,5 +40,5 @@ async def on_ready():
     await load_cogs()
 
 if __name__ == "__main__":
-    token = get_discord_token()
+    token = get_secret(SECRET_ID)
     bot.run(token)
