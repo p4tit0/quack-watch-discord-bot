@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix="q!", intents=intents)
 COGS_DIR = "cogs"
 DEFAULT_COGS = ["config"] 
 
-SECRET_ID = os.getenv("GOOGLE_CLOUD_SECRET_ID")
+SECRET_ID = os.getenv("GOOGLE_CLOUD_SECRET_ID_DISCORD")
 
 async def load_cogs():
     for filename in os.listdir(COGS_DIR):
